@@ -126,10 +126,10 @@ public:
         leftSizer->Add(inputTexto, 0, wxALL | wxALIGN_CENTER, 5);
 
         btnEnviarTexto = new wxButton(panel, wxID_ANY, "Enviar Texto", wxDefaultPosition, wxSize(200, 30));
-btnEnviarTexto->SetBackgroundColour(wxColour("#2ECC71")); // Color verde para diferenciar
-btnEnviarTexto->SetForegroundColour(*wxWHITE);
-btnEnviarTexto->Bind(wxEVT_BUTTON, &ChatbotProFrame::OnEnviarTexto, this);
-leftSizer->Add(btnEnviarTexto, 0, wxTOP | wxALIGN_CENTER, 5);
+        btnEnviarTexto->SetBackgroundColour(wxColour("#2ECC71")); // Color verde para diferenciar
+        btnEnviarTexto->SetForegroundColour(*wxWHITE);
+        btnEnviarTexto->Bind(wxEVT_BUTTON, &ChatbotProFrame::OnEnviarTexto, this);
+        leftSizer->Add(btnEnviarTexto, 0, wxTOP | wxALIGN_CENTER, 5);
 
        
     }
@@ -188,11 +188,11 @@ private:
 
     historialBox->AppendText("Tú: " + wxString::FromUTF8(prompt) + "\n");
 
-    // 1. Consultar a ChatGPT
+   
     std::string respuesta = PreguntarChatGPT(prompt);
     historialBox->AppendText("Asistente: " + wxString::FromUTF8(respuesta) + "\n");
 
-    // 2. Convertir a Audio y Reproducir
+    
     std::string voz = selectorVoz->GetStringSelection().ToStdString();
     std::string audio = TextoAAudio(respuesta, voz);
 
